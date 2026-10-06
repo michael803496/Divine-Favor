@@ -167,14 +167,14 @@ footer{background:var(--bg2);padding:70px 0 40px;border-top:1px solid var(--line
  <h2 class="rv">Ordering takes four steps</h2>
  <div class="steps">
   <div class="step rv"><h3>Choose your bird</h3><p>Pick broiler, layer, local chicken, or turkey.</p></div>
-  <div class="step rv"><h3>Send the details</h3><p>Fill the form below. It opens WhatsApp with your order typed out.</p></div>
+  <div class="step rv"><h3>Send the details</h3><p>Fill the form below to open a WhatsApp order message to Tios at 08141350690. Tap Send in WhatsApp to place it.</p></div>
   <div class="step rv"><h3>Confirm with us</h3><p>We reply with availability, price, and pickup or delivery options.</p></div>
   <div class="step rv"><h3>Receive your birds</h3><p>Collect from the farm or get them delivered as agreed.</p></div>
  </div>
 </div></section>
 
 <section id="order"><div class="wrap order">
- <div><h2 class="rv">Order on WhatsApp</h2><p class="lead rv">Fill this in and your message will be ready to send to Divine Favor Farms. You can edit it in WhatsApp before sending.</p>
+ <div><h2 class="rv">Order on WhatsApp</h2><p class="lead rv">Fill this in to open your order message to Tios on WhatsApp. Review it and tap Send to place your order.</p>
   <p class="lead rv"><a href="https://wa.me/2348141350690" style="color:var(--gold);font-weight:700;font-size:1.3rem;text-decoration:none">+234 814 135 0690</a></p></div>
  <form id="form" novalidate>
   <label>Your name<input id="name" autocomplete="name" placeholder="e.g. Chinedu Okafor"><span class="err" id="e-name"></span></label>
@@ -263,7 +263,8 @@ document.getElementById("form").addEventListener("submit",e=>{
  if(!n||!(q>0))return;
  const loc=document.getElementById("loc").value.trim(),note=document.getElementById("note").value.trim();
  const msg=`Hello Divine Favor Farms,\nMy name is ${n}.\nI would like to order: ${q} x ${document.getElementById("bird").value}.`+(loc?`\nLocation: ${loc}.`:"")+(note?`\nNotes: ${note}`:"")+`\nPlease confirm availability and price.`;
- window.open(wa(msg),"_blank","noopener");
+ // Navigate in the current tab so mobile browsers open WhatsApp reliably.
+ window.location.href=wa(msg);
 });
 </script>
 </body>
