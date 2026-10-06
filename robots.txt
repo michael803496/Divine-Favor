@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://divine-favor.vercel.app/sitemap.xml
